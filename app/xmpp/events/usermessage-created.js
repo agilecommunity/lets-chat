@@ -1,6 +1,6 @@
 'use strict';
 
-var Stanza = require('node-xmpp-core').Stanza,
+var Message = require('node-xmpp-server').Message,
     settings = require('./../../config'),
     EventListener = require('./../event-listener');
 
@@ -8,7 +8,7 @@ module.exports = EventListener.extend({
 
     on: 'user-messages:new',
 
-    then: function(msg, user, owner) {
+    then: function(msg, user, owner, data) {
         if (!settings.private.enable) {
             return;
         }
@@ -19,9 +19,13 @@ module.exports = EventListener.extend({
         });
 
         connections.forEach(function(connection) {
+            var id = msg._id;
+            if (connection.user.username === user.username) {
+                id = data && data.id || id;
+            }
 
-            var stanza = new Stanza.Message({
-                id: msg._id,
+            var stanza = new Message({
+                id: id,
                 type: 'chat',
                 to: connection.getUserJid(user.username),
                 from: connection.getUserJid(owner.username)
