@@ -74,10 +74,6 @@
 	"Slug": "Slug",
 	"XMPP/Jabber": "XMPP/Jabber",
 	"Private?": "Private?",
-<<<<<<< HEAD
-	"Empty for public room": "Empty for public room"
-}
-=======
 	"Empty for public room": "Empty for public room",
 	"Toggle Navigation": "Toggle Navigation",
 	"Home": "Home",
@@ -85,4 +81,3 @@
 	"Close": "Close",
 	"Transcript for": "Transcript for"
 }
->>>>>>> master
