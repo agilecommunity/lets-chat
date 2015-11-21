@@ -32,9 +32,7 @@ function AvatarManager(options) {
 }
 
 AvatarManager.prototype.add = function(query, cb) {
-
-    cb();
-
+    //cb(); comment out to avoid undefined error..
 };
 
 AvatarManager.prototype.fetch = function(query, cb) {
